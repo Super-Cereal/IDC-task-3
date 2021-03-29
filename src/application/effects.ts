@@ -1,5 +1,5 @@
 import { EMPTY, interval, merge, MonoTypeOperatorFunction, Observable, of } from 'rxjs';
-import { filter, mapTo, mergeMap, take, withLatestFrom } from 'rxjs/operators';
+import { filter, mapTo, mergeMap, withLatestFrom } from 'rxjs/operators';
 import { Action, actionMessage, actionNext, actionPrev, actionRestart, actionTimer, actionUpdate } from './actions';
 import { DELAY, INTERVAL, Slide, State } from './types';
 
