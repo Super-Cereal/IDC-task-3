@@ -85,19 +85,23 @@ body {
     display: none;
 }
 
-.theme_dark .button {
+.theme_light .set-dark {
+    display: block;
+}
+
+.button {
     color: #918F8A;
 }
 
-.theme_dark .button:hover {
+.button:hover {
     color: #F4B000;
 }
 
-.theme_dark .slide-progress {
+.slide-progress {
     background: #918F8A;
 }
 
-.theme_dark .set-dark {
+.set-dark {
     display: none;
 }
 
