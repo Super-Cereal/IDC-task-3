@@ -1,7 +1,7 @@
 import produce, { Draft } from 'immer';
 
 import { Action } from './actions';
-import { descriptors, DRAFT_STATE, errors, INTERVAL, State } from './types';
+import { DELAY, descriptors, DRAFT_STATE, errors, INTERVAL, State } from './types';
 
 export function die(error: keyof typeof errors, ...args: any[]): never {
     const e = errors[error];
@@ -33,10 +33,10 @@ export const data = produce((draft: Draft<State>, action: Action) => {
             if (draft.index + 1 < draft.stories.length) {
                 draft.index++;
                 draft.progress = 0;
-            } else {
+            } else if (draft.index + 1 === draft.stories.length) {
+                draft.progress = DELAY;
                 draft.pause = true;
-            }
-
+            } else draft.pause = true;
             break;
         case 'restart':
             draft.pause = false;
