@@ -58,6 +58,10 @@ export const data = produce((draft: Draft<State>, action: Action) => {
         case 'theme':
             draft.theme = action.theme;
             break;
+        case "pause":
+            if (action.pause) draft.pause = true;
+            else if (draft.index + 1 <= draft.stories.length && draft.progress !== DELAY) draft.pause = false;
+            break;
     }
 });
 

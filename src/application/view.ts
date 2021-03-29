@@ -42,3 +42,10 @@ export const setElementTheme = (elem: HTMLElement, theme: SlideTheme) => {
     elem.classList.remove(`theme_${lastTheme}`);
     elem.classList.add(`theme_${theme}`);
 }
+
+export const setPauseIcon = (elem: HTMLElement, pause: boolean) => {
+    var lastPauseIcon = pause ? "pause" : "continue";
+    var curPauseIcon = pause ? "continue" : "pause";
+    elem.classList.remove(`pauseIcon_${lastPauseIcon}`);
+    elem.classList.add(`pauseIcon_${curPauseIcon}`);
+}

@@ -100,3 +100,15 @@ body {
 .theme_dark .set-dark {
     display: none;
 }
+
+.set-continue {
+    display: none;
+}
+  
+.pauseIcon_continue .set-pause {
+  display: none;
+}
+
+.pauseIcon_continue .set-continue {
+  display: block;
+}

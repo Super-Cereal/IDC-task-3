@@ -22,6 +22,11 @@ export const createThemeSelector = (state$: Observable<State>) => state$.pipe(
     distinctUntilChanged(),
 );
 
+export const createPauseSelector = (state$: Observable<State>) => state$.pipe(
+    map(s => s.pause),
+    distinctUntilChanged()
+);
+
 export const createCurrentDataSelector = (state$: Observable<State>) => state$.pipe(
     map(({ index, stories }): SlideData<Slide> => ({ index, value: stories[index] })),
     distinctUntilChanged(

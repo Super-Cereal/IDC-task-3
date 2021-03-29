@@ -8,6 +8,8 @@ export const actionPrev = () => ({ type: 'prev' } as const);
 
 export const actionRestart = () => ({ type: 'restart' } as const);
 
+export const actionSetPause = (pause: boolean) => ({ type: 'pause', pause } as const);
+
 export const actionUpdate = (data: Partial<Slide>) => ({ type: 'update', data } as const);
 
 export const actionTimer = () => ({ type: 'timer' } as const);
@@ -20,5 +22,6 @@ export type Action =
     | ReturnType<typeof actionRestart> 
     | ReturnType<typeof actionMessage> 
     | ReturnType<typeof actionSetTheme> 
+    | ReturnType<typeof actionSetPause>
     | ReturnType<typeof actionTimer>
     | ReturnType<typeof actionUpdate>;
