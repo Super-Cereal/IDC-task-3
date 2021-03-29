@@ -16,6 +16,8 @@ export const actionTimer = () => ({ type: 'timer' } as const);
 
 export const actionMessage = (action: string, params: string) => ({ type: 'message', action, params } as const);
 
+export const actionSelectUser = (data: Partial<Slide>) => ({ type: 'selectUser', data} as const)
+
 export type Action = 
     | ReturnType<typeof actionNext> 
     | ReturnType<typeof actionPrev> 
@@ -24,4 +26,5 @@ export type Action =
     | ReturnType<typeof actionSetTheme> 
     | ReturnType<typeof actionSetPause>
     | ReturnType<typeof actionTimer>
+    | ReturnType<typeof actionSelectUser>
     | ReturnType<typeof actionUpdate>;

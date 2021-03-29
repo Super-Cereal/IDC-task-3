@@ -3,6 +3,8 @@ import produce, { Draft } from 'immer';
 import { Action } from './actions';
 import { DELAY, descriptors, DRAFT_STATE, errors, INTERVAL, State } from './types';
 
+import { countVotesForUser } from './selectUserFunction';
+
 export function die(error: keyof typeof errors, ...args: any[]): never {
     const e = errors[error];
     const msg = !e
@@ -61,6 +63,20 @@ export const data = produce((draft: Draft<State>, action: Action) => {
         case "pause":
             if (action.pause) draft.pause = true;
             else if (draft.index + 1 <= draft.stories.length && draft.progress !== DELAY) draft.pause = false;
+            break;
+        case "selectUser":
+            const data2 = action.data.data;
+            //@ts-ignore
+            let users = draft.stories[draft.index + 1].data.users;
+            //@ts-ignore
+            countVotesForUser(draft.stories[draft.index].data.selectedUserId, -1, users);
+            //@ts-ignore
+            countVotesForUser(data2.selectedUserId, 1, users);
+            
+            if (data2) {
+              Object.assign(draft.stories[draft.index].data, data2)
+              Object.assign(draft.stories[draft.index + 1].data, data2);
+            }
             break;
     }
 });
