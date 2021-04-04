@@ -216,8 +216,8 @@ const ChartPage = (data) => {
       let v = values[i],
         heightLandscape = Math.floor((v.value / max.value) * LINE_HEIGHT_IN_PROCENTS_LANDSCAPE);
       heightPortrait = Math.floor((v.value / max.value) * LINE_HEIGHT_IN_PROCENTS_PORTRAIT);
-      columnsLandscape.push(ChartBody_Column(v, heightLandscape, v === max));
-      columnsPortrait.push(ChartBody_Column(v, heightPortrait, v === max));
+      columnsLandscape.push(ChartBody_Column(v, heightLandscape, v.active ?? false));
+      columnsPortrait.push(ChartBody_Column(v, heightPortrait, v.active ?? false));
     }
     return [columnsLandscape, columnsPortrait];
   };
