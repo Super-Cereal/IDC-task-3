@@ -14,7 +14,7 @@ function ready() {
 
 function sendMessage(msg: XMessage) {
     window.postMessage(msg, '*');
-} 
+}
 
 function receiveMessage({ data }: MessageEvent<XMessage>) {
     if (data.type === 'message@UPDATE') {

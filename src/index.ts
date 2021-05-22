@@ -14,7 +14,7 @@ import { initIframe, initProgress, sendMessage, setElementTheme, setScale, setPa
 
 import './index.css';
 
-import { stories } from './data';
+import { stories } from './data/data';
 
 const [dispatch, state$] = createState(stories);
 

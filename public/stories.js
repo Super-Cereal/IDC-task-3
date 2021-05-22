@@ -213,9 +213,14 @@ const ChartPage = (data) => {
     let columnsLandscape = [];
     let columnsPortrait = [];
     for (let i = 0; i < 9; i++) {
-      let v = values[i],
-        heightLandscape = Math.floor((v.value / max.value) * LINE_HEIGHT_IN_PROCENTS_LANDSCAPE);
-      heightPortrait = Math.floor((v.value / max.value) * LINE_HEIGHT_IN_PROCENTS_PORTRAIT);
+      let v = values[i];
+      if (!v) {
+        columnsLandscape.push("<div></div>");
+        columnsPortrait.push("<div></div>");
+        continue
+      }
+      let  heightLandscape = Math.floor((v.value / max.value) * LINE_HEIGHT_IN_PROCENTS_LANDSCAPE),
+        heightPortrait = Math.floor((v.value / max.value) * LINE_HEIGHT_IN_PROCENTS_PORTRAIT);
       columnsLandscape.push(ChartBody_Column(v, heightLandscape, v.active ?? false));
       columnsPortrait.push(ChartBody_Column(v, heightPortrait, v.active ?? false));
     }
